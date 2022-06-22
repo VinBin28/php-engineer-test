@@ -10,8 +10,7 @@ require __DIR__ . '/vendor/autoload.php';
 use FlickerLeap\Diamond;
 use FlickerLeap\Rectangle;
 use FlickerLeap\Square;
-
-echo 'Hello World';
+use Httpful\Request;
 
 $sqaure = new Square($length = 6);
 
@@ -19,11 +18,9 @@ $diamond = new Diamond($length = 6);
 
 $rectangle = new Rectangle($length = 6);
 
-//$client = new Httpful\Httpful();
-//$client->get('http://pokeapi.co/api/v2/pokemon/mewtwo/');
 $response = json_decode(file_get_contents('http://pokeapi.co/api/v2/pokemon/mewtwo/'));
 
-//var_dump($response->abilities);
+var_dump($response->abilities[0]->ability->name);
 
 ?>
 <!DOCTYPE html>
